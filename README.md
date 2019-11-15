@@ -1,10 +1,12 @@
 FutabaUsVfd Library
 =============================================================================
 
-Original version downloaded from https://playground.arduino.cc/Main/FutabaUsVfd/
+This is an improved version of the [FutabaUsVfd][1] library published on Arduino Playground. It is designed to work with the Futaba 162SD03C Vacuum Fluorescent Display. It may work with other VFDs using the same controller chips.
 
-Modifications
+
+Modifications from original library
 -----
+
 + Updated directory and file structure to match Arduino library specification.
 + Added `library.properties` file.
 + Changed ``#include "WProgram.h"`` to `#include "Arduino.h"`
