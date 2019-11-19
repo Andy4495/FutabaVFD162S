@@ -39,6 +39,22 @@ static const uint8_t RESET_HOLD_TIME = 50;   // Datasheet specifies 30 us (twRST
 static const uint16_t POST_RESET_DELAY_TIME = 2500;  // Datasheet specifies 2000 us (twait)
 ```
 
+Using the 162SD03 Module
+-------------------------
+
+The [162SD03][2] module has some noticeable flicker with brightness levels lower than 40. Above 40, I was not able to notice any flicker.
+
+There is a noticeable difference in brightness when going from level 254 to 255. This is a much bigger change than any of the other single-value changes.
+
+While it is a 5V device, the inputs are compatible with 3.3V logic levels.
+
+Pin Functions (J1):
+1. Vcc
+2. CLK
+3. GND
+4. DATA
+5. RESET 
+
 References
 ----------
 + FutabaUsVfd [library][1]
