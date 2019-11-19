@@ -46,6 +46,8 @@ The [162SD03][2] module has some noticeable flicker with brightness levels lower
 
 There is a noticeable difference in brightness when going from level 254 to 255. This is a much bigger change than any of the other single-value changes.
 
+I measured supply current of around 320 mA when the device was powered, regardless of whether something was displayed or the screen was blank. The datasheet specs it at 450 mA typical, 600 mA maximum. 
+
 While it is a 5V device, the inputs are compatible with 3.3V logic levels.
 
 Pin Functions (J1):
@@ -53,7 +55,7 @@ Pin Functions (J1):
 2. CLK
 3. GND
 4. DATA
-5. RESET 
+5. RESET
 
 References
 ----------
