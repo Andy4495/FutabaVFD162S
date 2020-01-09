@@ -21,6 +21,9 @@
  This example code is in the public domain.
 
  http://arduino.cc/playground/Main/FutabaUsVfd
+
+ Slight modification Nov 2019 to include in updated library at https://github.com/Andy4495/FutabaUsVfd
+
 */
 
 // Include the library code.

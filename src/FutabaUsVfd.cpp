@@ -1,9 +1,14 @@
 /*
-  FutabaUsVfd Library - Implementation
+  FutabaUsVfd Library
+  - Original file created 17 March 2011 (https://playground.arduino.cc/Main/FutabaUsVfd/), unknown author
 
-  Originally created 17 March 2011
+  Updated by Andreas Taylor Nov 2019
+  - Modifications to support latest Arduino IDE and library spec
+  - Added methods for most of the control functions listed in datasheet
+  - Updated timing definitions
 
-  This file is in the public domain.
+  https://github.com/Andy4495/FutabaUsVfd
+
 */
 
 #include "FutabaUsVfd.h"
