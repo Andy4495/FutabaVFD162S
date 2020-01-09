@@ -3,12 +3,32 @@ FutabaUsVfd Library
 
 This is an improved version of the [FutabaUsVfd][1] library published on Arduino Playground. It is designed to work with the Futaba 162SD03C Vacuum Fluorescent Display. It may work with other VFDs using the same controller chips.
 
+Library Usage
+-------------
+_Be sure to review the example sketches included with the library._
+
+1. Include the library:
+
+  `#include <FutabaUsVfd.h>`
+
+2. Instantiate an object, passing in the Arduino pin numbers used to control the display:
+
+  `FutabaUsVfd vfd(CLK_pin_number, DATA_pin_number, RESET_pin_number);`
+
+3. Initialize the vfd object:
+
+  `vfd.begin(number_of_columns, number_of_rows);`
+
+  The Futaba 162SD03 has 16 columns and rows, so it would normally be initialized with:
+
+  `vfd.begin(16,2)`
+
+4. Call the supported library methods to display information similar to the way you would use the LiquidCrystal library.
 
 Modifications from original library
 -----
 
-+ Updated directory and file structure to match Arduino library specification.
-+ Added `library.properties` file.
++ Updated directory structure and added `library.properties` to conform to the Arduino library specification.
 + Changed ``#include "WProgram.h"`` to `#include "Arduino.h"`
 + Changed `virtual void write(uint8_t character)` to `virtual size_t write(uint8_t character)`
 + Added methods (see [datasheet][2] for details):
@@ -42,11 +62,11 @@ static const uint16_t POST_RESET_DELAY_TIME = 2500;  // Datasheet specifies 2000
 Using the 162SD03 Module
 -------------------------
 
-The [162SD03][2] module has some noticeable flicker with brightness levels lower than 40. Above 40, I was not able to notice any flicker.
+The Arduino Playground [article][1] mentions that the [162SD03][2] module has problems with flicker. My observation is that while there is some flicker with brightness levels lower than 40, I was not able to notice any flicker anytime the brightness level was set to 40 or more.
 
 There is a noticeable difference in brightness when going from level 254 to 255. This is a much bigger change than any of the other single-value changes.
 
-I measured supply current of around 320 mA when the device was powered, regardless of whether something was displayed or the screen was blank. The datasheet specs it at 450 mA typical, 600 mA maximum. 
+I measured supply current of around 320 mA when the device was powered, regardless of whether something was displayed or the screen was blank. The datasheet specs it at 450 mA typical, 600 mA maximum.
 
 While it is a 5V device, the inputs are compatible with 3.3V logic levels.
 
@@ -59,7 +79,7 @@ Pin Functions (J1):
 
 References
 ----------
-+ FutabaUsVfd [library][1]
++ Original FutabaUsVfd [library][1] at Arduino Playground
 + Futaba Model 162SD03C Vacuum Fluorescent Display [datasheet][2]
 
 
