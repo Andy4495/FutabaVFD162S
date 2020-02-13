@@ -1,20 +1,21 @@
 /*
-  FutabaUsVfd Library
+  FutabaVFD162S Library
   - Original file created 17 March 2011 (https://playground.arduino.cc/Main/FutabaUsVfd/), unknown author
 
   Updated by Andreas Taylor Nov 2019
   - Modifications to support latest Arduino IDE and library spec
   - Added methods for most of the control functions listed in datasheet
   - Updated timing definitions
+  Updated Feb 2020 to change name to avoid conflict with existing library. 
 
-  https://github.com/Andy4495/FutabaUsVfd
+  https://github.com/Andy4495/FutabaVFD162S
 
 */
 
-#include "FutabaUsVfd.h"
+#include "FutabaVFD162S.h"
 #include "Arduino.h"
 
-FutabaUsVfd::FutabaUsVfd(uint8_t clockPin, uint8_t dataPin, uint8_t resetPin)
+FutabaVFD162S::FutabaVFD162S(uint8_t clockPin, uint8_t dataPin, uint8_t resetPin)
 {
   // Copy pin values.
   _clockPin = clockPin;
@@ -40,7 +41,7 @@ FutabaUsVfd::FutabaUsVfd(uint8_t clockPin, uint8_t dataPin, uint8_t resetPin)
   }
 }
 
-void FutabaUsVfd::begin(uint8_t numColumns, int numRows)
+void FutabaVFD162S::begin(uint8_t numColumns, int numRows)
 {
   _numDisplayColumns = numColumns;
   _numDisplayRows = numRows;
@@ -70,17 +71,17 @@ void FutabaUsVfd::begin(uint8_t numColumns, int numRows)
   }
 }
 
-void FutabaUsVfd::clear()
+void FutabaVFD162S::clear()
 {
   writeCharacterDirect(CLEAR_ENTIRE_DISPLAY_CHARACTER);
 }
 
-void FutabaUsVfd::home()
+void FutabaVFD162S::home()
 {
   setCursor(0, 0);
 }
 
-void FutabaUsVfd::createChar(uint8_t characterIndex, uint8_t pixels[] /* 8 bytes, 1 for each row */)
+void FutabaVFD162S::createChar(uint8_t characterIndex, uint8_t pixels[] /* 8 bytes, 1 for each row */)
 {
   writeCharacterDirect(LOAD_USER_CHARACTER_CHARACTER);
 
@@ -106,7 +107,7 @@ void FutabaUsVfd::createChar(uint8_t characterIndex, uint8_t pixels[] /* 8 bytes
   }
 }
 
-void FutabaUsVfd::setCursor(uint8_t column, uint8_t row)
+void FutabaVFD162S::setCursor(uint8_t column, uint8_t row)
 {
   uint8_t address = row * _numDisplayColumns + column;
   if (address >= _numDisplayCharacters)
@@ -118,7 +119,7 @@ void FutabaUsVfd::setCursor(uint8_t column, uint8_t row)
   writeCharacterDirect(address + 1);
 }
 
-/*virtual*/ size_t FutabaUsVfd::write(uint8_t character)
+/*virtual*/ size_t FutabaVFD162S::write(uint8_t character)
 {
   // Remap from LCD custom character locations to VFD characters.
   if (character < NUM_CUSTOM_CHARACTERS)
@@ -136,7 +137,7 @@ void FutabaUsVfd::setCursor(uint8_t column, uint8_t row)
   return 1;
 }
 
-void FutabaUsVfd::setBrightness(uint8_t level)
+void FutabaVFD162S::setBrightness(uint8_t level)
 {
   writeCharacterDirect(SET_DISPLAY_BRIGHTNESS_CHARACTER);
   writeCharacterDirect(level);
@@ -144,94 +145,94 @@ void FutabaUsVfd::setBrightness(uint8_t level)
 
 // Cursor control
 // Changes do not take affect immediately; next character will be printed to current cursor postion before new mode takes affect.
-void FutabaUsVfd::setCursorModeAutoInc() // Auto-increment cursor each time character is printed (default)
+void FutabaVFD162S::setCursorModeAutoInc() // Auto-increment cursor each time character is printed (default)
 {
   writeCharacterDirect(SET_CURSOR_MODE_CHARACTER);
   writeCharacterDirect(0x01);
 }
 
-void FutabaUsVfd::setCursorModeAutoDec() // Auto-decrement cursor each time character is printed
+void FutabaVFD162S::setCursorModeAutoDec() // Auto-decrement cursor each time character is printed
 {
   writeCharacterDirect(SET_CURSOR_MODE_CHARACTER);
   writeCharacterDirect(0x02);
 }
 
-void FutabaUsVfd::setCursorModeNonInc()  // Cursor stays at same position when character is printed
+void FutabaVFD162S::setCursorModeNonInc()  // Cursor stays at same position when character is printed
 {
   writeCharacterDirect(SET_CURSOR_MODE_CHARACTER);
   writeCharacterDirect(0x03);
 }
 
 // Character flashing configuration
-void FutabaUsVfd::setFlashPositions(uint8_t start, uint8_t stop) // Several ranges can be chosen with multiple calls and may overlap
+void FutabaVFD162S::setFlashPositions(uint8_t start, uint8_t stop) // Several ranges can be chosen with multiple calls and may overlap
 {
   writeCharacterDirect(SET_FLASH_POSITION_CHARACTER);
   writeCharacterDirect(start);
   writeCharacterDirect(stop);
 }
 
-void FutabaUsVfd::setFlashModeEnabled()
+void FutabaVFD162S::setFlashModeEnabled()
 {
   writeCharacterDirect(FLASH_MODE_CHARACTER);
   writeCharacterDirect(0x02);
 }
 
-void FutabaUsVfd::setFlashModeDisabled()    // Default
+void FutabaVFD162S::setFlashModeDisabled()    // Default
 {
   writeCharacterDirect(FLASH_MODE_CHARACTER);
   writeCharacterDirect(0x01);
 }
 
-void FutabaUsVfd::setFlashRate50() // 50 Hz - Effectively makes characters look 1/2 as bright as non-flashing characters
+void FutabaVFD162S::setFlashRate50() // 50 Hz - Effectively makes characters look 1/2 as bright as non-flashing characters
 {
   writeCharacterDirect(SET_FLASH_RATE_CHARACTER);
   writeCharacterDirect(0x01);
 }
 
-void FutabaUsVfd::setFlashRate1()  // 1 Hz - Default rate
+void FutabaVFD162S::setFlashRate1()  // 1 Hz - Default rate
 {
   writeCharacterDirect(SET_FLASH_RATE_CHARACTER);
   writeCharacterDirect(0x30);
 }
 
-void FutabaUsVfd::setFlashRateTenth() // 1/10 Hz
+void FutabaVFD162S::setFlashRateTenth() // 1/10 Hz
 {
   writeCharacterDirect(SET_FLASH_RATE_CHARACTER);
   writeCharacterDirect(0xff);
 }
 
 // Font selection
-void FutabaUsVfd::setFontWestern()         // Default
+void FutabaVFD162S::setFontWestern()         // Default
 {
   writeCharacterDirect(SELECT_FONT_CHARACTER);
   writeCharacterDirect(0x01);
 }
 
-void FutabaUsVfd::setFontKatakana()
+void FutabaVFD162S::setFontKatakana()
 {
   writeCharacterDirect(SELECT_FONT_CHARACTER);
   writeCharacterDirect(0x02);
 }
 
 // Display buffer modes
-void FutabaUsVfd::setNonBufferedMode()  // Default
+void FutabaVFD162S::setNonBufferedMode()  // Default
 {
   writeCharacterDirect(SET_BUFFERED_MODE_CHARACTER);
   writeCharacterDirect(0x01);
 }
 
-void FutabaUsVfd::setBufferedMode()
+void FutabaVFD162S::setBufferedMode()
 {
   writeCharacterDirect(SET_BUFFERED_MODE_CHARACTER);
   writeCharacterDirect(0x02);
 }
 
-void FutabaUsVfd::printMessageBuffer()
+void FutabaVFD162S::printMessageBuffer()
 {
   writeCharacterDirect(PRINT_MESSAGE_BUFFER_CHARACTER);
 }
 
-void FutabaUsVfd::writeCharacterDirect(uint8_t character)
+void FutabaVFD162S::writeCharacterDirect(uint8_t character)
 {
   for (uint8_t mask=0b10000000; mask; mask>>=1)
   {

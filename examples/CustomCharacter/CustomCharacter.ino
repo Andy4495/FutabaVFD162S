@@ -1,5 +1,5 @@
 /*
-  FutabaUsVfd Library - customCharacter()
+  FutabaVFD162S Library - customCharacter()
 
  Demonstrates the use an Futaba VFD. Tested
  with model US162SD03CB 2x16  display.
@@ -20,13 +20,13 @@
 
  http://arduino.cc/playground/Main/FutabaUsVfd
 
- Slight modification Nov 2019 to include in updated library at https://github.com/Andy4495/FutabaUsVfd
+ Slight modification Nov 2019 to include in updated library at https://github.com/Andy4495/FutabaVFD162S
 */
 
 // Include the library code.
-#include <FutabaUsVfd.h>
+#include <FutabaVFD162S.h>
 
-FutabaUsVfd vfd(5, 6, 8);
+FutabaVFD162S vfd(5, 6, 8);
 
 byte openHeart[8] = {
   0b00000,

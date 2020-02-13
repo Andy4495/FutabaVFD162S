@@ -1,24 +1,25 @@
 /*
-  FutabaUsVfd Library
+  FutabaVFD162S Library
   - Original file created 17 March 2011 (https://playground.arduino.cc/Main/FutabaUsVfd/), unknown author
 
   Updated by Andreas Taylor Nov 2019
   - Modifications to support latest Arduino IDE and library spec
   - Added methods for most of the control functions listed in datasheet
   - Updated timing definitions
+  Updated Feb 2020 with new name to avoid conflict with existing library.
 
-  https://github.com/Andy4495/FutabaUsVfd
+  https://github.com/Andy4495/FutabaVFD162S
 
 */
 
-#ifndef FutabaUsVfd_h
-#define FutabaUsVfd_h
+#ifndef FutabaVFD162S_h
+#define FutabaVFD162S_h
 
 #include <inttypes.h>
 #include "Print.h"
 #include "Arduino.h"
 
-class FutabaUsVfd : public Print {
+class FutabaVFD162S : public Print {
 public:
 
   // Special control characters supported by display. See datasheet for more information.
@@ -36,7 +37,7 @@ public:
   static const uint8_t SET_BUFFERED_MODE_CHARACTER = 0x0B; // Second byte is buffering mode.
   static const uint8_t PRINT_MESSAGE_BUFFER_CHARACTER = 0x0C; // Flush buffer and home cursor.
 
-  FutabaUsVfd(uint8_t clockPin, uint8_t dataPin, uint8_t resetPin);
+  FutabaVFD162S(uint8_t clockPin, uint8_t dataPin, uint8_t resetPin);
 
   // Sets the character dimensions of the display.
   void begin(uint8_t numColumns, int numRows);
@@ -128,9 +129,9 @@ private:
   inline void timingDelay(uint16_t delayInMicroseconds);
 };
 
-inline void FutabaUsVfd::timingDelay(uint16_t delayInMicroseconds)
+inline void FutabaVFD162S::timingDelay(uint16_t delayInMicroseconds)
 {
   delayMicroseconds(delayInMicroseconds);
 }
 
-#endif // FutabaUsVfd_h
+#endif // FutabaVFD162S_h

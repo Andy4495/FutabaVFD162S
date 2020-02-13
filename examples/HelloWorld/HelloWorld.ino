@@ -1,5 +1,5 @@
 /*
-  FutabaUsVfd Library - Hello World
+  FutabaVFD162S Library - Hello World
 
  Demonstrates the use an Futaba VFD. Tested
  with model US162SD03CB 2x16  display.
@@ -20,16 +20,16 @@
 
  This example code is in the public domain.
 
- http://arduino.cc/playground/Main/FutabaUsVfd
+ http://arduino.cc/playground/Main/FutabaVFD162S
 
- Slight modification Nov 2019 to include in updated library at https://github.com/Andy4495/FutabaUsVfd
+ Slight modification Nov 2019 to include in updated library at https://github.com/Andy4495/FutabaVFD162S
 
 */
 
 // Include the library code.
-#include <FutabaUsVfd.h>
+#include <FutabaVFD162S.h>
 
-FutabaUsVfd vfd(5, 6, 8);
+FutabaVFD162S vfd(5, 6, 8);
 
 void setup() {
   // Set up the VFD's number of columns and rows:

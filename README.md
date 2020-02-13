@@ -1,7 +1,7 @@
-FutabaUsVfd Library
+FutabaVFD162S Library
 =============================================================================
 
-This is an improved version of the [FutabaUsVfd][1] library published on Arduino Playground. It is designed to work with the Futaba 162SD03C Vacuum Fluorescent Display. It may work with other VFDs using the same controller chips.
+This is an improved version of the [FutabaUsVfd][1] library published on Arduino Playground. It is designed to work with the Futaba US162SD03 Vacuum Fluorescent Display. It may work with other VFDs using the same controller chips.
 
 Library Usage
 -------------
@@ -9,11 +9,11 @@ _Be sure to review the example sketches included with the library._
 
 1. Include the library:
 
-  `#include <FutabaUsVfd.h>`
+  `#include <FutabaVFD162S.h>`
 
 2. Instantiate an object, passing in the Arduino pin numbers used to control the display:
 
-  `FutabaUsVfd vfd(CLK_pin_number, DATA_pin_number, RESET_pin_number);`
+  `FutabaVFD162S vfd(CLK_pin_number, DATA_pin_number, RESET_pin_number);`
 
 3. Initialize the vfd object:
 
@@ -68,7 +68,7 @@ There is a noticeable difference in brightness when going from level 254 to 255.
 
 I measured supply current of around 320 mA when the device was powered, regardless of whether something was displayed or the screen was blank. The datasheet specs it at 450 mA typical, 600 mA maximum.
 
-While it is a 5V device, the inputs are compatible with 3.3V logic levels.
+While it is a 5V device, the CLK, DATA, and RESET inputs are compatible with 3.3V logic levels.
 
 Pin Functions (J1):
 1. Vcc
@@ -80,7 +80,7 @@ Pin Functions (J1):
 References
 ----------
 + Original FutabaUsVfd [library][1] at Arduino Playground
-+ Futaba Model 162SD03C Vacuum Fluorescent Display [datasheet][2]
++ Futaba Model US162SD03 Vacuum Fluorescent Display [datasheet][2]
 
 
 [1]: https://playground.arduino.cc/Main/FutabaUsVfd/
