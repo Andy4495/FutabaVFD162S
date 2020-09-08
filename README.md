@@ -19,7 +19,7 @@ _Be sure to review the example sketches included with the library._
 
   `vfd.begin(number_of_columns, number_of_rows);`
 
-  The Futaba 162SD03 has 16 columns and rows, so it would normally be initialized with:
+  The Futaba 162SD03 has 16 columns and 2 rows, so it would normally be initialized with:
 
   `vfd.begin(16,2)`
 
@@ -68,7 +68,7 @@ There is a noticeable difference in brightness when going from level 254 to 255.
 
 I measured supply current of around 320 mA when the device was powered, regardless of whether something was displayed or the screen was blank. The datasheet specs it at 450 mA typical, 600 mA maximum.
 
-While it is a 5V device, the CLK, DATA, and RESET inputs are compatible with 3.3V logic levels.
+While the 162SD03 is a 5V device, the CLK, DATA, and RESET inputs are compatible with 3.3V logic levels.
 
 Pin Functions (J1):
 1. Vcc
