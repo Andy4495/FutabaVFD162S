@@ -82,6 +82,11 @@ References
 + Original FutabaUsVfd [library][1] at Arduino Playground
 + Futaba Model US162SD03 Vacuum Fluorescent Display [datasheet][2]
 
+License
+-------
+The software and other files in this repository are released under what is commonly called the [MIT License][100]. See the file [`LICENSE`][101] in this repository.
 
 [1]: https://playground.arduino.cc/Main/FutabaUsVfd/
 [2]: https://www.allelectronics.com/mas_assets/media/allelectronics2018/spec/VFD-162.pdf
+[100]: https://choosealicense.com/licenses/mit/
+[101]: ./LICENSE
