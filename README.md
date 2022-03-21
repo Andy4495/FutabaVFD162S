@@ -1,5 +1,8 @@
 # FutabaVFD162S Library
 
+[![Arduino Compile Sketches](https://github.com/Andy4495/FutabaVFD162S/actions/workflows/arduino-compile-sketches.yml/badge.svg)](https://github.com/Andy4495/FutabaVFD162S/actions/workflows/arduino-compile-sketches.yml)
+[![Check Markdown Links](https://github.com/Andy4495/FutabaVFD162S/actions/workflows/CheckMarkdownLinks.yml/badge.svg)](https://github.com/Andy4495/FutabaVFD162S/actions/workflows/CheckMarkdownLinks.yml)
+
 This is an improved version of the [FutabaUsVfd][1] library published on Arduino Playground. It is designed to work with the Futaba US162SD03 Vacuum Fluorescent Display. It may work with other VFDs using the same controller chips.
 
 ## Library Usage
