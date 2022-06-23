@@ -1,0 +1,19 @@
+# GitHub action to build repos that are dependent on this library
+name: Build Dependent Repos
+
+on: 
+  release:
+    types: [published,edited]
+  workflow_dispatch:
+
+jobs:
+  build-dependent-repos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger build on ConnectedStatusMonitor
+        run: |
+          curl -X POST https://api.github.com/repos/Andy4495/ConnectedStatusMonitor/actions/workflows/arduino-compile-sketches.yml/dispatches -H "Accept: application/vnd.github.v3+json" -H "Authorization: token ${{ secrets.FORCE_REBUILD }}" -d '{"ref":"main", "inputs":{"message":"Triggered by ${{ github.repository }} from ${{ github.workflow }} workflow run number ${{ github.run_number }}"}}'
+      - name: Print job summary
+        run: | 
+          echo Event name: ${{ github.event_name }} >$GITHUB_STEP_SUMMARY
+            

@@ -4,6 +4,7 @@ name: Arduino Compile Sketches
 
 on: 
   push:
+  workflow_dispatch:
 
 jobs:
   compile-sketches: 
