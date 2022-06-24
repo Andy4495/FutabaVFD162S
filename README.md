@@ -40,6 +40,7 @@ _Be sure to review the example sketches included with the library._
 - Updated directory structure and added `library.properties` to conform to the [Arduino library specification][3].
 - Changed ``#include "WProgram.h"`` to `#include "Arduino.h"`
 - Changed `virtual void write(uint8_t character)` to `virtual size_t write(uint8_t character)`
+- Renamed example sketch extensions from `.pde` to `.ino`
 - Added methods (see [datasheet][2] for details):
 
   ```cpp
@@ -90,7 +91,7 @@ Pin Functions (J1):
 
 ## References
 
-- Original FutabaUsVfd [library][1] at Arduino Playground
+- Original FutabaUsVfd [library][1] at Arduino Playground.
 - Futaba Model US162SD03 Vacuum Fluorescent Display [datasheet][2]
 
 ## License
