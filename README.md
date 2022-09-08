@@ -103,4 +103,4 @@ The software and other files in this repository are released under what is commo
 [3]: https://arduino.github.io/arduino-cli/latest/library-specification/
 [100]: https://choosealicense.com/licenses/mit/
 [101]: ./LICENSE
-[200]: https://github.com/Andy4495/FutabaVFD162S
+[//]: # ([200]: https://github.com/Andy4495/FutabaVFD162S)
