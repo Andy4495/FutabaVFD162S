@@ -99,7 +99,7 @@ Pin Functions (J1):
 The software and other files in this repository are released under what is commonly called the [MIT License][100]. See the file [`LICENSE`][101] in this repository.
 
 [1]: https://playground.arduino.cc/Main/FutabaUsVfd/
-[2]: https://www.allelectronics.com/mas_assets/media/allelectronics2018/spec/VFD-162.pdf
+[2]: ./extras//VFD-162.pdf
 [3]: https://arduino.github.io/arduino-cli/latest/library-specification/
 [100]: https://choosealicense.com/licenses/mit/
 [101]: ./LICENSE
